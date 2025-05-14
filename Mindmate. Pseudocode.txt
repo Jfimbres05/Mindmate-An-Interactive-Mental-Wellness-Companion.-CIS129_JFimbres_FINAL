@@ -1,0 +1,25 @@
+Function DailyCheckIn():
+    mood = GetMoodInputFromUser()
+    SaveToDatabase(user_id, date, mood)
+    journal_prompt = GeneratePrompt(mood)
+    DisplayPrompt(journal_prompt)
+
+Function GeneratePrompt(mood):
+    If mood == "sad":
+        Return "What happened today that made you feel down?"
+    Else if mood == "anxious":
+        Return "What is on your mind right now?"
+    Else if mood == "happy":
+        Return "What made you smile today?"
+    ...
+
+Function SuggestCopingStrategies(mood):
+    If mood == "anxious":
+        Return ["Try the 4-7-8 breathing technique", "Write down 3 worries and a positive thought"]
+    Else if mood == "angry":
+        Return ["Do a 5-minute grounding exercise", "Go for a walk"]
+    ...
+
+Function ShowEmotionTrends():
+    mood_data = GetPast30DaysMood(user_id)
+    DisplayGraph(mood_data)
